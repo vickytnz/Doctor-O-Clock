@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Doctor O'Clock</title>
+    <script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+    
+    <style type="text/css">
+        * {
+        	margin: 0;
+        	padding: 0;
+        }
+       p, h1 { font-family: Helvetica, Arial, sans-serif;  } 
+        h1 { text-align: center; color: #0003b6; margin-top: 1em; }
+        
+        p {font-size: 24px;}
+        p strong { color: #0003b6; font-weight: normal;}
+         p strong.hour { font-weight: bold;}
+         #clock {
+        	position: relative;
+        	width: 600px;
+        	height: 600px;
+        	margin: 20px auto 0 auto;
+        	background: url(images/clockface.jpg);
+        	list-style: none;
+        	}
+        
+        #sec, #min, #hour {
+        	position: absolute;
+        	width: 30px;
+        	height: 600px;
+        	top: 0px;
+        	left: 285px;
+        	}
+        
+        #sec {
+        	background: url(images/sechand.png);
+        	z-index: 3;
+           	}
+           
+        #min {
+        	background: url(images/minhand.png);
+        	z-index: 2;
+           	}
+           
+        #hour {
+        	background: url(images/hourhand.png);
+        	z-index: 1;
+           	}
+           	
+        p {
+            text-align: center; 
+            padding: 10px 0 0 0;
+            }
+    </style>
+    
+    <script type="text/javascript">
+    
+        $(document).ready(function() {
+         
+              setInterval( function() {
+              var seconds = new Date().getSeconds();
+              var sdegree = seconds * 6;
+              var srotate = "rotate(" + sdegree + "deg)";
+              
+              $("#sec").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
+               $("strong.seconds").text(seconds);    
+              }, 1000 );
+              
+         
+              setInterval( function() {
+              var hours = new Date().getHours();
+              var doctors = ["William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "Christopher Eccleston", "David Tennant",  "Matt Smith", "Peter Caldani"]
+              var doctortime = hours % 12 -1 ; /* Converting time to 12 hours, and then subtracting one to allow for array sub*/
+              var mins = new Date().getMinutes();
+              var hdegree = hours * 30 + (mins / 2);
+              var hrotate = "rotate(" + hdegree + "deg)";
+              
+              $("#hour").css({"-moz-transform" : hrotate, "-webkit-transform" : hrotate});
+               $("strong.hour").text(doctors[doctortime]);     
+              }, 1000 );
+        
+        
+              setInterval( function() {
+              var mins = new Date().getMinutes();
+              var mdegree = mins * 6;
+              var mrotate = "rotate(" + mdegree + "deg)";
+              
+              $("#min").css({"-moz-transform" : mrotate, "-webkit-transform" : mrotate});
+               $("strong.minutes").text(mins);   
+              }, 1000 );
+         
+        }); 
+    
+    </script>
+
+</head>
+
+<body>
+<h1>What's the Time, Doctor?</h1>
+	<ul id="clock">	
+	   	<li id="sec"></li>
+	   	<li id="hour"></li>
+		<li id="min"></li>
+	</ul>
+	<p>It's <strong class="minutes">0</strong> minutes and <strong class="seconds">0</strong> seconds past <br/> <strong class="hour">William Hartnell</strong> o'clock.</p>
+
+<span>Clock code by <a href="http://css-tricks.com/css3-clock/">Toby Pitman</a>. Doctor images 1-11 by <a href="http://bogswallop.deviantart.com/art/Allo-Im-the-Doctor-163503578">Bogwallop on Deviantart</a>. All other code by <a href="http://twitter.com/vickytnz">@vickytnz</a>. See source on Github.</span>
+</body>
+	
+</html>
+
