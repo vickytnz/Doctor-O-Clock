@@ -88,8 +88,8 @@
          
               setInterval( function() {
               var hours = new Date().getHours();
-              var doctors = ["William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "Christopher Eccleston", "David Tennant",  "Matt Smith", "Peter Caldani"]
-              var doctortime = hours % 12 -1 ; /* Converting time to 12 hours, and then subtracting one to allow for array sub*/
+              var doctors = ["Peter Caldani", "William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "Christopher Eccleston", "David Tennant",  "Matt Smith"] /*Caldani at 0 as calculations are done on remainder of 12 (which for him is 0)*/
+              var doctortime = hours % 12 ; /* Converting time to 12 hours, 0 gives 12 i.e. Caldani*/
               var mins = new Date().getMinutes();
               var hdegree = hours * 30 + (mins / 2);
               var hrotate = "rotate(" + hdegree + "deg)";
