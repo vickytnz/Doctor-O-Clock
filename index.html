@@ -216,12 +216,12 @@
               var doctorseconds = (seconds<10?'0':'') + seconds;
               var doctormins = (mins<10?'0':'') + mins;
               
-              var doctors = ["Peter Capaldi", "William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "Christopher Eccleston", "David Tennant",  "Matt Smith"] /*Caldani at 0 as calculations are done on remainder of 12 (which for him is 0)*/
-              var doctortime = hours % 12 ; /* Converting time to 12 hours, 0 gives 12 i.e. Caldani*/
+              var doctors = ["Peter Capaldi", "William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "Christopher Eccleston", "David Tennant",  "Matt Smith", "Peter Capaldi"] /*Capaldi at 0 and repeated at end as calculations are done on remainder of 12 (which for him is 0)*/
+              var doctortime = hours % 12 ; /* Converting time to 12 hours, 0 gives 12 i.e. Capaldi*/
                
  
                if (moffattime) {
-	               doctors = ["David Tennant", "William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "John Hurt", "Christopher Eccleston", "David Tennant", "David Tennant", "Matt Smith", "Peter Capaldi", "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "John Hurt", "Christopher Eccleston", "David Tennant" ];
+	               doctors = ["David Tennant", "William Hartnell", "Patrick Troughton" , "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "John Hurt", "Christopher Eccleston", "David Tennant", "David Tennant", "Matt Smith", "Peter Capaldi", "Jon Pertwee", "Tom Baker", "Peter Davison", "Colin Baker", "Sylvester McCoy", "Paul McGann", "John Hurt", "Christopher Eccleston", "David Tennant", "David Tennant" ];
 	               var doctortime = hours % 24; /*Easier to do 24 hours rather than 12*/
                }
                
